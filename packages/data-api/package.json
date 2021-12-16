@@ -10,7 +10,7 @@
     "@aws-cdk-example-dynamic-web-config/shared": "0.1.0"
   },
   "devDependencies": {
-    "@types/node": "10.17.27",
+    "@types/node": "17.0.0",
     "ts-node": "^9.0.0",
     "typescript": "~3.9.7"
   }
