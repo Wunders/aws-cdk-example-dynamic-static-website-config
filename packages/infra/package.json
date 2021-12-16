@@ -1,0 +1,26 @@
+{
+  "name": "@aws-cdk-example-dynamic-web-config/infra",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT-0",
+  "bin": {
+    "infra": "bin/infra.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/node": "10.17.27",
+    "aws-cdk": "2.0.0",
+    "esbuild": "^0.14.2",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.0.0",
+    "constructs": "^10.0.0",
+    "source-map-support": "^0.5.16"
+  }
+}

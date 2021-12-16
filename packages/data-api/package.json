@@ -1,0 +1,17 @@
+{
+  "name": "@aws-cdk-example-dynamic-web-config/data-api",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT-0",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@aws-cdk-example-dynamic-web-config/shared": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "10.17.27",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  }
+}

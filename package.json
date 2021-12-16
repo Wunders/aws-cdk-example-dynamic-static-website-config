@@ -1,0 +1,36 @@
+{
+  "name": "aws-cdk-example-dynamic-web-config",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT-0",
+  "scripts": {
+    "prebuild": "yarn workspace @aws-cdk-example-dynamic-web-config/shared run build",
+    "build": "yarn workspaces run build",
+    "start": "yarn workspace @aws-cdk-example-dynamic-web-config/website run start",
+    "cdk": "yarn workspace @aws-cdk-example-dynamic-web-config/infra cdk",
+    "lint": "eslint --max-warnings 0  .",
+    "lint:fix": "eslint --fix .",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "devDependencies": {
+    "@types/node": "10.17.27",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-header": "^3.1.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.3.2",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  },
+  "lint-staged": {
+    "*": "yarn run lint:fix"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

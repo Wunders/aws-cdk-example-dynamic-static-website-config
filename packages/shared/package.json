@@ -1,0 +1,20 @@
+{
+  "name": "@aws-cdk-example-dynamic-web-config/shared",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT-0",
+  "main": "dist/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "10.17.27",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@types/archiver": "^5.1.1",
+    "archiver": "^5.3.0"
+  }
+}
