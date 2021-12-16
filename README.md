@@ -47,7 +47,7 @@ const buildWebsiteIndexCustomResource = new CustomResource(this, 'BuildWebsiteIn
 
 Other configurations like Cognito User Pool Id or Cognito App client Id can be injected into the app in the same way.
 
-This setup can also be used to inject the [Content Security Policy Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) as meta tags in the index.html. In this case, for instance, the value of API url can be injected into the connect-src.
+This setup can also be used to inject the [Content Security Policy Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) as meta tags in the index.html. In this case, for instance, the value of API url can be used directly in the connect-src.
 
 ## Usage
 
@@ -55,11 +55,13 @@ This setup can also be used to inject the [Content Security Policy Header](https
 
 To deploy the example stack to your default AWS account/region, under project root folder, run:
 
-1. `yarn build` to build all projects
+1. `yarn install` to install all the dependencies
 
-2. `yarn cdk deploy` to deploy this stack to your default AWS account/region
+2. `yarn build` to build all projects
 
-Once the deployment is completed, you should be able to locate CloudFront Distribution domain Url under the CloudFormation output with prefix _AWSCDKExampleDynamicWebConfigDemoStack.WebsiteConstructCloudfrontDistributionDomainName_. Navigate to that Url in your browser and you should see the UI is able to talk to the API and the data is loaded successfully in the Table with the configurated injected during the deployment.
+3. `yarn cdk deploy` to deploy this stack to your default AWS account/region
+
+Once the deployment is completed, you should be able to locate CloudFront Distribution domain Url under the CloudFormation output with prefix _AWSCDKExampleDynamicWebConfigDemoStack.WebsiteConstructCloudfrontDistributionDomainName_. Navigate to that Url in your browser and you should see the UI is able to talk to the API and the data is loaded successfully in the Table with the configurations injected during the deployment.
 
 ### Local Development
 
