@@ -42,16 +42,30 @@ const columnDefinitions: Column<DataType>[] = [
 
 const Data: FC = () => {
     const [data, setData] = useState<DataType[]>([]);
+    const [error, setError] = useState<string>();
 
     useEffect(() => {
         const loadData = async () => {
-            const data = await apiGet<DataType[]>('/data');
-            setData(data);
+            try {
+                const data = await apiGet<DataType[]>('/data');
+                setData(data);
+            } catch (err) {
+                setError((err as Error).message);
+            }
         };
+
         loadData();
     }, []);
 
-    return <Table tableTitle="Data" columnDefinitions={columnDefinitions} items={data} disableRowSelect={true} />;
+    return (
+        <Table
+            tableTitle="Data"
+            columnDefinitions={columnDefinitions}
+            items={data}
+            disableRowSelect={true}
+            errorText={error}
+        />
+    );
 };
 
 export default Data;

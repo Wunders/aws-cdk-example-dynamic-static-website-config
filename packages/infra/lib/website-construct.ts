@@ -1,7 +1,7 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
 import { Construct } from 'constructs';
-import { Duration, CustomResource, CfnOutput } from 'aws-cdk-lib/core';
+import { Duration, CustomResource, CfnOutput } from 'aws-cdk-lib';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as lambdaNodeJs from 'aws-cdk-lib/aws-lambda-nodejs';
