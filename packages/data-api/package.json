@@ -4,14 +4,11 @@
   "private": true,
   "license": "MIT-0",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint --max-warnings 0  .",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "@aws-cdk-example-dynamic-web-config/shared": "0.1.0"
-  },
-  "devDependencies": {
-    "@types/node": "17.0.0",
-    "ts-node": "^9.0.0",
-    "typescript": "~3.9.7"
   }
 }

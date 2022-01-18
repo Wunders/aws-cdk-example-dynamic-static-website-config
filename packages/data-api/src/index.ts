@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT-0
 import { DataType } from '@aws-cdk-example-dynamic-web-config/shared';
 
-export const CORS = {
+const CORS = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Origin': '*',

@@ -4,12 +4,9 @@
   "private": true,
   "license": "MIT-0",
   "scripts": {
-    "build": "tsc"
-  },
-  "devDependencies": {
-    "@types/node": "17.0.0",
-    "ts-node": "^9.0.0",
-    "typescript": "~3.9.7"
+    "build": "tsc",
+    "lint": "eslint --max-warnings 0  .",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "@types/archiver": "^5.1.1",

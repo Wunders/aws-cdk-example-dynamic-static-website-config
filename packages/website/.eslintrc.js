@@ -17,19 +17,12 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.      
 const path = require('path');
 
 module.exports = {
-    root: true,
-    parser: '@typescript-eslint/parser',
-    env: {
-        node: true,
-    },
-    plugins: ['@typescript-eslint', 'header'],
     extends: [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/eslint-recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:prettier/recommended',
+        'react-app',
+        'react-app/jest'
     ],
+    plugins: ['header'],
     rules: {
-        'header/header': [2, path.join(__dirname, './header.js')],
+        'header/header': [2, path.join(__dirname, '..', '..', './header.js')],
     }
 };
