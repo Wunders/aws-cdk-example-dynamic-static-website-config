@@ -6,9 +6,16 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint --max-warnings 0  .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "test": "jest ./tst"
   },
   "dependencies": {
     "@aws-cdk-example-dynamic-web-config/shared": "0.1.0"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.50.0",
+    "@types/jest": "^27.4.0",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.3"
   }
 }

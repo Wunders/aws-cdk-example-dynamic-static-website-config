@@ -7,11 +7,12 @@ import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as lambdaNodeJs from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as path from 'path';
-
+import * as dynamoDb from 'aws-cdk-lib/aws-dynamodb';
+import { AttributeType } from 'aws-cdk-lib/aws-dynamodb';
 /**
- * The CDK Construct provisions the backend api resources.
+ * Defines Rest API in ApiGateway, as well as the Lambda function it delegates to
  */
-export class WebsiteApiConstruct extends Construct {
+export class PublicKeyValueStoreApiConstruct extends Construct {
     readonly api: apigateway.RestApi;
 
     constructor(scope: Construct, id: string) {
@@ -25,11 +26,11 @@ export class WebsiteApiConstruct extends Construct {
             restApiName: 'Data API',
         });
 
-        this.api.addUsagePlan('WebsiteDataAPIUsagePlan', {
-            name: 'WebsiteDataAPIUsagePlan',
+        this.api.addUsagePlan('PublicKeyAPIUsagePlan', {
+            name: 'PublicKeyAPIUsagePlan',
             apiStages: [{ api: this.api, stage: this.api.deploymentStage }],
             throttle: { burstLimit: 500, rateLimit: 1000 },
-            quota: { limit: 10000000, period: apigateway.Period.MONTH },
+            quota: { limit: 1000, period: apigateway.Period.MONTH },
         });
 
         const dataFunctionRole = new iam.Role(this, 'DataFunctionRole', {
@@ -48,7 +49,18 @@ export class WebsiteApiConstruct extends Construct {
 
         const dataIntegration = new apigateway.LambdaIntegration(dataFunction);
 
+        const dynamoDbTable = new dynamoDb.Table(this, 'KeyValueTable', {
+            tableName: 'key_value_table',
+            partitionKey: {
+                name: 'registration_key',
+                type: AttributeType.STRING,
+            },
+        });
+
+        dynamoDbTable.grantReadWriteData(dataFunctionRole);
+
         const dataEndpoint = this.api.root.addResource('data');
         dataEndpoint.addMethod('Get', dataIntegration);
+        dataEndpoint.addMethod('Put', dataIntegration);
     }
 }

@@ -24,7 +24,7 @@ export interface WebsiteConstructProps {
  * a custom resource injecting the config (e.g., API Url) into index.html file,
  * a S3 bucket deployment deploying the website static files.
  */
-export class WebsiteConstruct extends Construct {
+export class KeyValueStoreWebsiteConstruct extends Construct {
     constructor(scope: Construct, id: string, props: WebsiteConstructProps) {
         super(scope, id);
 
