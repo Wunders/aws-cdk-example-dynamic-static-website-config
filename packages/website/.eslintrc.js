@@ -21,8 +21,4 @@ module.exports = {
         'react-app',
         'react-app/jest'
     ],
-    plugins: ['header'],
-    rules: {
-        'header/header': [2, path.join(__dirname, '..', '..', './header.js')],
-    }
 };

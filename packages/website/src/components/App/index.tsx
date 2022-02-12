@@ -1,20 +1,27 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
-import { FC, useMemo } from 'react';
-import NorthStarThemeProvider from 'aws-northstar/components/NorthStarThemeProvider';
-import AppLayout from 'aws-northstar/layouts/AppLayout';
-import Header from 'aws-northstar/components/Header';
-import Data from '../Data';
+import { Box, Container, Slider } from '@mui/material';
+// import { FC, useMemo } from 'react';
+// import Data from '../Data';
 
-const App: FC = () => {
-    const header = useMemo(() => <Header title="Hello World" />, []);
-    return (
-        <NorthStarThemeProvider>
-            <AppLayout header={header}>
-                <Data />
-            </AppLayout>
-        </NorthStarThemeProvider>
-    );
+function App() { return (   
+    <Container maxWidth="xs">
+        <Box sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          Cool Sliderbar
+          <Slider
+            defaultValue={50}
+            valueLabelDisplay="auto"
+          >
+          </Slider>
+        </Box>      
+    </Container>
+    )
 };
 
 export default App;

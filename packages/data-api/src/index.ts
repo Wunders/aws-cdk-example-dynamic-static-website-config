@@ -1,8 +1,8 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
-import { DataType } from '@aws-cdk-example-dynamic-web-config/shared';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// import { DataType } from '@aws-cdk-example-dynamic-web-config/shared';
 import { DocumentClient } from 'aws-sdk/clients/dynamodb';
-import DynamoDB = require('aws-sdk/clients/dynamodb');
 
 const ddb = new DocumentClient();
 
